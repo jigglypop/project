@@ -1,7 +1,7 @@
 import csv
 import requests
 
-key = '100055495b6ed905789d9f0ddf560f3f'
+key = ''
 movies = []
 with open('boxoffice.csv', 'r', encoding='utf-8') as f:
     reader = csv.DictReader(f)
@@ -21,7 +21,7 @@ for movieCd in movies:
             '장르': movie_info.get('genres')[0]['genreNm'] if movie_info.get('genres') else None,
         }
 with open('movie.csv', 'w', encoding='utf-8') as f:
-    fieldnames = ['영화 대표코드' , '영화명(국문)' , '영화명(영문)' , '영화명(원문)' , '관람등급' , '개봉연도' , '상영시간' , '장르' , '감독명'] # 맞춰서 작성..
+    fieldnames = ['영화 대표코드' , '영화명(국문)' , '영화명(영문)' , '영화명(원문)' , '관람등급' ,  '장르'] # 맞춰서 작성..
     csv_writer = csv.DictWriter(f, fieldnames=fieldnames)
     csv_writer.writeheader()
     for item in result.values():
